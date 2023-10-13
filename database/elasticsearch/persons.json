@@ -1,0 +1,4 @@
+[
+    {"name":"Charlene Mickael","dateofbirth":"2000-11-01","gender":"female","children":3,"marketing":{"cars":1236,"shoes":null,"toys":null,"fashion":null,"music":null,"garden":null,"electronic":null,"hifi":1775,"food":null},"address":{"country":"Italy","zipcode":"80100","city":"Ischia","countrycode":"IT","location":{"lon":13.935138341699972,"lat":40.71842684204817}}},
+    {"name":"Kim Hania","dateofbirth":"1998-05-18","gender":"male","children":4,"marketing":{"cars":null,"shoes":null,"toys":132,"fashion":null,"music":null,"garden":null,"electronic":null,"hifi":null,"food":null},"address":{"country":"Germany","zipcode":"9998","city":"Berlin","countrycode":"DE","location":{"lon":13.164834451298645,"lat":52.604673827377155}}}
+]

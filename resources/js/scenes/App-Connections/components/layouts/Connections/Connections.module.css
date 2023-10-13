@@ -1,0 +1,41 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 260px;
+    border-right: 1px solid rgb(242, 244, 247);
+    color: rgb(255, 255, 255);
+}
+.sidebarLogo {
+    height: 58px;
+    padding: 10px;
+    text-align: center;
+}
+
+.header {
+    height: 58px;
+    padding: 10px 0 0 16px;
+    font-size: 25px;
+    color: #01579b;
+}
+
+.copyright {
+    margin-top: 7px;
+    height: 26px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #1a202c !important;
+}
+
+.navLink:hover {
+    background-color: #a0aec0;
+}
+
+.navLink:active {
+    background-color: #1a202c;
+}
+
+.navLink[aria-current] {
+    color: #1a202c !important;
+}

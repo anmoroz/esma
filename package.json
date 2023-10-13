@@ -1,0 +1,35 @@
+{
+    "private": false,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.0.4",
+        "laravel-vite-plugin": "^0.8.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.15.0",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@ant-design/colors": "^7.0.0",
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
+        "@fontsource/roboto": "^5.0.8",
+        "@mui/icons-material": "^5.14.8",
+        "@mui/material": "^5.14.8",
+        "@mui/x-tree-view": "^6.0.0-alpha.2",
+        "@tanstack/react-query": "^4.35.0",
+        "@tanstack/react-query-devtools": "^4.35.0",
+        "axios": "^1.5.0",
+        "pretty-print-json": "^2.0.3"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
+}
