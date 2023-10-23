@@ -31,12 +31,12 @@ export function Component() {
         },
         onSuccess: (data, action) => {
             if (action === "delete") {
-                queryClient.invalidateQueries({ queryKey: ["connection", params.connectionId, "indices"] });
+                queryClient.invalidateQueries({ queryKey: ["connection", params.connectionId, "indices"] })
                 navigate(`/connections/${params.connectionId}`, { replace: true })
                 return
             }
             if (action === "open" || action === "close") {
-                queryClient.invalidateQueries({ queryKey: ["connections", params.connectionId, "indices", params.indexId, "info"] });
+                queryClient.invalidateQueries({ queryKey: ["connections", params.connectionId, "indices", params.indexId, "info"] })
             }
             setOutput(data)
         }

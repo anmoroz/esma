@@ -15,6 +15,7 @@ import { Outlet, NavLink } from "react-router-dom";
 import {useConnections} from "../../../../../hooks/useConnections";
 import Header from "./Header";
 import Copyright from "./Copyright";
+import Button from "@mui/material/Button";
 
 
 export function Component() {
@@ -47,6 +48,9 @@ export function Component() {
                         </ListItemButton>
                     ))}
                 </List>
+                <Button component={NavLink} to={"/connections"}>
+                    New connection
+                </Button>
             </Box>
             <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
                 <Header />

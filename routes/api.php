@@ -1,20 +1,26 @@
 <?php
 
-use App\Http\Resources\ConnectionCollection;
-use App\Http\Resources\ConnectionResource;
-use App\Models\Connection;
+/*
+ * This file is part of the ESMA project.
+ *
+ * (c) Andrey Morozov <pavlovsk36@gmail.com>
+ */
+
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ConnectionController;
 
 
-Route::get('/connections', function () {
-    return new ConnectionCollection(Connection::all());
+Route::controller(ConnectionController::class)->group(function () {
+    Route::get('/connections', 'index');
+    Route::get('/connection/{id}', 'show');
+    Route::delete('/connection/{id}', 'destroy');
+    Route::post('/connections', 'store');
 });
 
-Route::get('/connection/{id}', function (string $id) {
-    return new ConnectionResource(Connection::findOrFail($id));
-});
 
 Route::get(
         '/connection/{connectionId}/es/{method}',

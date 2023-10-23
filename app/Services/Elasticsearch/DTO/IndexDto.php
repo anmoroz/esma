@@ -7,7 +7,7 @@ namespace App\Services\Elasticsearch\DTO;
 
 use Illuminate\Contracts\Support\Arrayable;
 
-class IndexDTO implements Arrayable
+class IndexDto implements Arrayable
 {
     /**
      * @param string $name

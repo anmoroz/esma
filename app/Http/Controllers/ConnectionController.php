@@ -1,25 +1,33 @@
 <?php
 
+/*
+ * This file is part of the ESMA project.
+ *
+ * (c) Andrey Morozov <pavlovsk36@gmail.com>
+ */
+
+declare(strict_types=1);
+
+
 namespace App\Http\Controllers;
 
+use App\Services\Connection\BadConnectionUrlException;
+use App\Services\Connection\ConnectionNotFoundException;
+use App\Services\Connection\ConnectionService;
 use Illuminate\Http\Request;
 
 class ConnectionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request)
+    public function __construct(private ConnectionService $connectionService)
     {
-        return response()->json([3,3,4,5,5]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      */
-    public function create()
+    public function index()
     {
-        //
+        return ['data' => $this->connectionService->getAll()];
     }
 
     /**
@@ -27,7 +35,11 @@ class ConnectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            return $this->connectionService->store($request);
+        } catch (BadConnectionUrlException $e) {
+            abort(400, $e->getMessage());
+        }
     }
 
     /**
@@ -35,23 +47,11 @@ class ConnectionController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        try {
+            return $this->connectionService->getConnection((int) $id);
+        } catch (ConnectionNotFoundException $e) {
+            abort(404, $e->getMessage());
+        }
     }
 
     /**
@@ -59,6 +59,10 @@ class ConnectionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $this->connectionService->destroy((int) $id);
+        } catch (ConnectionNotFoundException $e) {
+            abort(404, $e->getMessage());
+        }
     }
 }

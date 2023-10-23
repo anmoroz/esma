@@ -1,11 +1,17 @@
 <?php
 
+/*
+ * This file is part of the ESMA project.
+ *
+ * (c) Andrey Morozov <pavlovsk36@gmail.com>
+ */
+
 declare(strict_types=1);
 
 
 namespace App\Services\Elasticsearch;
 
-use App\Services\Elasticsearch\DTO\IndexDTO;
+use App\Services\Elasticsearch\DTO\IndexDto;
 use Illuminate\Support\Collection;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
@@ -58,7 +64,7 @@ class IndexService extends ElasticsearchAbstract
                 $indexInfo = $clusterService->getIndexInfoById($indexId);
                 $clusterHealth = $this->esClient->cluster()->health($params)->asArray();
 
-                $indexDTO = new IndexDTO(
+                $indexDto = new IndexDto(
                     $indexName,
                     $indexId,
                     $clusterHealth['status'],
@@ -68,7 +74,7 @@ class IndexService extends ElasticsearchAbstract
                     (int) $indexInfo['settings']['index']['number_of_shards']
                 );
 
-                return collect($indexDTO);
+                return collect($indexDto);
         }
 
         return collect($promise->asArray());

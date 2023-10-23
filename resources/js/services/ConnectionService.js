@@ -6,9 +6,13 @@ const ConnectionService = (function() {
     const getAll = async () => {
         return await axios.get(`${url}/connections`);
     }
+    const create = async (connection) => {
+        return await axios.post(`${url}/connections`, connection);
+    }
 
     return {
-        getAll: getAll
+        getAll: getAll,
+        create: create
     }
 })();
 
